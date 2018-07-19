@@ -10,6 +10,8 @@ var MainEntry = /** @class */ (function () {
         Laya.MiniAdpter.init();
         //程序入口
         Laya.init(1136, 640, WebGL);
+        Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
+        Laya.stage.scaleMode = Laya.Stage.SCALE_EXACTFIT;
         //激活资源版本控制
         Laya.ResourceVersion.enable("version.json", Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
         function beginLoad() {
