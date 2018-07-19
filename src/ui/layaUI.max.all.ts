@@ -2,6 +2,23 @@
 import View=laya.ui.View;
 import Dialog=laya.ui.Dialog;
 module ui.Main {
+    export class LoadingUI extends View {
+		public txt:Laya.Label;
+		public bar:Laya.Box;
+
+        public static  uiView:any ={"type":"View","props":{"width":1136,"height":640},"child":[{"type":"Rect","props":{"width":1136,"lineWidth":1,"height":640,"fillColor":"#50603c"}},{"type":"Label","props":{"y":299,"x":431,"width":274,"text":"Loading...","height":41,"fontSize":30,"color":"#ffffff","anchorY":0,"anchorX":0,"align":"center"}},{"type":"Label","props":{"y":576,"x":527,"width":81,"var":"txt","text":"100%","height":25,"fontSize":20,"color":"#ffffff","align":"center"}},{"type":"Rect","props":{"y":554,"x":129,"width":878,"lineWidth":1,"height":16,"fillColor":"#ffffff"}},{"type":"Box","props":{"y":556,"x":131,"var":"bar"},"child":[{"type":"Rect","props":{"width":874,"lineWidth":1,"height":12,"fillColor":"#848484"}}]}]};
+        constructor(){ super()}
+        createChildren():void {
+        
+            super.createChildren();
+            this.createView(ui.Main.LoadingUI.uiView);
+
+        }
+
+    }
+}
+
+module ui.Main {
     export class StartPanelUI extends View {
 		public startBtn:Laya.Button;
 		public nameInput:Laya.TextInput;
