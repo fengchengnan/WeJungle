@@ -27,10 +27,15 @@ module view.Main{
 			if(this.currentP < this.targetP)
 			{
 				this.currentP += this.scaleSpeed;
+
+				this.bar.scaleX = this.currentP;
+				this.txt.text = Math.floor(this.currentP*100) + "%";
 			}
 			else
 			{
 				this.currentP = this.targetP;
+				this.bar.scaleX = 1;
+				this.txt.text = "100%";
 			}
 		}
 
@@ -48,8 +53,10 @@ module view.Main{
 				current = total;
 			}
 			this.targetP = current/total;
+			/*
 			this.bar.scaleX = this.currentP;
 			this.txt.text = Math.floor(this.currentP*100) + "%";
+			*/
 		}
 	}
 }
