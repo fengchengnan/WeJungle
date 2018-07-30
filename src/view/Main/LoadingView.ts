@@ -1,7 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.Main{
-	export class LoadingView extends ui.Main.LoadingUI
-	{
+module view.main{
+	export class LoadingView extends ui.main.LoadingUI{
 		private currentP:number;
 		private targetP:number;
 		private scaleSpeed:number = 0.01;
@@ -27,10 +26,17 @@ module view.Main{
 			if(this.currentP < this.targetP)
 			{
 				this.currentP += this.scaleSpeed;
+				this.bar.scaleX = this.currentP;
+				this.txt.text = Math.floor(this.currentP*100) + "%";
 			}
 			else
 			{
 				this.currentP = this.targetP;
+			}
+			if(this.currentP == 1)
+			{
+				this.event(BaseEvent.COMPLETE);
+				this.clearTimer(this,this.onFrame);
 			}
 		}
 
@@ -48,8 +54,6 @@ module view.Main{
 				current = total;
 			}
 			this.targetP = current/total;
-			this.bar.scaleX = this.currentP;
-			this.txt.text = Math.floor(this.currentP*100) + "%";
 		}
 	}
 }

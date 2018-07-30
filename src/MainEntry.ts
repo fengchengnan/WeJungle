@@ -1,6 +1,5 @@
 import WebGL = Laya.WebGL;
 import Handler = Laya.Handler;
-import mainView = view.Main;
 import Sprite = laya.display.Sprite;
 /*
 * name;
@@ -13,7 +12,6 @@ class MainEntry{
         Laya.MiniAdpter.init();
         //程序入口
         
-        Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
         Laya.init(1136, 640, WebGL);
 
         Laya.stage.scaleMode = laya.display.Stage.SCALE_NOBORDER;
@@ -28,30 +26,15 @@ class MainEntry{
         Laya.loader.load("res/atlas/comp.atlas", Handler.create(this, this.onLoaded));
     }
     private onLoaded(): void {
-        //实例UI界面
-        var startPanel: mainView.StartPanel = new mainView.StartPanel();
-        //Laya.stage.addChild(startPanel);
 
-        this.createContent();
+        this.setupSystems();
+        SceneManager.show(EnumSceneType.uiScene);
     }
 
-    private p:number = 2;
-    private createContent():void
+    private setupSystems()
     {
         LayerManager.setup();
-
-        LoadingPanel.show();
-
-        Laya.timer.frameLoop(1,this,this.onFrame);
-        
-        setTimeout(function() {
-            LoadingPanel.hide();
-        }, 5000);
-    }
-    private onFrame():void
-    {
-        this.p+=3;
-        LoadingPanel.progress(this.p,100);
+        SceneManager.setUp();
     }
 }
 new MainEntry();

@@ -1,7 +1,7 @@
 
 import View=laya.ui.View;
 import Dialog=laya.ui.Dialog;
-module ui.Main {
+module ui.main {
     export class LoadingUI extends View {
 		public txt:Laya.Label;
 		public bar:Laya.Box;
@@ -11,14 +11,14 @@ module ui.Main {
         createChildren():void {
         
             super.createChildren();
-            this.createView(ui.Main.LoadingUI.uiView);
+            this.createView(ui.main.LoadingUI.uiView);
 
         }
 
     }
 }
 
-module ui.Main {
+module ui.main {
     export class StartPanelUI extends View {
 		public startBtn:Laya.Button;
 		public nameInput:Laya.TextInput;
@@ -28,7 +28,7 @@ module ui.Main {
         createChildren():void {
         
             super.createChildren();
-            this.createView(ui.Main.StartPanelUI.uiView);
+            this.createView(ui.main.StartPanelUI.uiView);
 
         }
 

@@ -1,6 +1,6 @@
 var WebGL = Laya.WebGL;
 var Handler = Laya.Handler;
-var mainView = view.Main;
+var Sprite = laya.display.Sprite;
 /*
 * name;
 */
@@ -10,21 +10,24 @@ var MainEntry = /** @class */ (function () {
         Laya.MiniAdpter.init();
         //程序入口
         Laya.init(1136, 640, WebGL);
-        Laya.stage.alignV = Laya.Stage.ALIGN_MIDDLE;
-        Laya.stage.scaleMode = Laya.Stage.SCALE_EXACTFIT;
+        Laya.stage.scaleMode = laya.display.Stage.SCALE_NOBORDER;
+        Laya.stage.alignH = laya.display.Stage.ALIGN_LEFT;
+        Laya.stage.alignV = laya.display.Stage.ALIGN_TOP;
+        //
         //激活资源版本控制
-        Laya.ResourceVersion.enable("version.json", Handler.create(null, beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
-        function beginLoad() {
-            Laya.loader.load("res/atlas/comp.atlas", Handler.create(null, onLoaded));
-        }
-        function onLoaded() {
-            //实例UI界面
-            var startPanel = new mainView.StartPanel();
-            Laya.stage.addChild(startPanel);
-            //startPanel.x = Laya.stage.width/2;
-            //startPanel.y = Laya.stage.height/2;
-        }
+        Laya.ResourceVersion.enable("version.json", Handler.create(this, this.beginLoad), Laya.ResourceVersion.FILENAME_VERSION);
     }
+    MainEntry.prototype.beginLoad = function () {
+        Laya.loader.load("res/atlas/comp.atlas", Handler.create(this, this.onLoaded));
+    };
+    MainEntry.prototype.onLoaded = function () {
+        this.setupSystems();
+        SceneManager.show(EnumSceneType.uiScene);
+    };
+    MainEntry.prototype.setupSystems = function () {
+        LayerManager.setup();
+        SceneManager.setUp();
+    };
     return MainEntry;
 }());
 new MainEntry();

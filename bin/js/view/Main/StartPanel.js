@@ -11,16 +11,16 @@ var __extends = (this && this.__extends) || (function () {
 /**Created by the LayaAirIDE*/
 var view;
 (function (view) {
-    var Main;
-    (function (Main) {
+    var main;
+    (function (main) {
         var StartPanel = /** @class */ (function (_super) {
             __extends(StartPanel, _super);
             function StartPanel() {
                 return _super.call(this) || this;
             }
             return StartPanel;
-        }(ui.Main.StartPanelUI));
-        Main.StartPanel = StartPanel;
-    })(Main = view.Main || (view.Main = {}));
+        }(ui.main.StartPanelUI));
+        main.StartPanel = StartPanel;
+    })(main = view.main || (view.main = {}));
 })(view || (view = {}));
 //# sourceMappingURL=StartPanel.js.map

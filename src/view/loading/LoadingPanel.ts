@@ -1,18 +1,21 @@
+import LoadingView = view.main.LoadingView;
+
 /*
 * 通用loading面板;
 */
-class LoadingPanel
-{
+///<reference path="LoadingView.ts" />
+class LoadingPanel{
+    
     private static _instance:LoadingPanel;
 
-    private panel:mainView.LoadingView;
+    private panel:LoadingView;
     
     constructor()
     {
-        this.panel = new mainView.LoadingView();
+        this.panel = new LoadingView();
     }
 
-    private static get instance():LoadingPanel
+    public static get instance():LoadingPanel
     {
         if(this._instance == null)
         {
@@ -50,5 +53,26 @@ class LoadingPanel
     public static hide():void
     {
         this.instance.hide();
+    }
+
+    //----------------------------事件-------------------------------------//
+    public on(type:string, caller:any, listener:Function, args?:any[]):void
+    {
+        this.panel.on(type, caller, listener, args);
+    }
+
+    public off(type:string, caller:any, listener:Function, onceOnly?:boolean):void
+    {
+        this.panel.off(type, caller, listener, onceOnly);
+    }
+
+    public once(type:string, caller:any, listener:Function, args?:any[]):void
+    {
+        this.panel.once(type, caller, listener, args);
+    }
+
+    public event(type:string, data:any):void
+    {
+        this.panel.event(type, data);
     }
 }

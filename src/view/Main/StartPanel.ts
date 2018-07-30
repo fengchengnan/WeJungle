@@ -1,6 +1,6 @@
 /**Created by the LayaAirIDE*/
-module view.Main{
-	export class StartPanel extends ui.Main.StartPanelUI{
+module view.main{
+	export class StartPanel extends ui.main.StartPanelUI{
 		constructor(){
 			super();
 		}
