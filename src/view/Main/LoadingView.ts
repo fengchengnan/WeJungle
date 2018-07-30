@@ -26,6 +26,7 @@ module view.main{
 			if(this.currentP < this.targetP)
 			{
 				this.currentP += this.scaleSpeed;
+				
 				this.bar.scaleX = this.currentP;
 				this.txt.text = Math.floor(this.currentP*100) + "%";
 			}
