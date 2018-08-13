@@ -1,6 +1,12 @@
 import WebGL = Laya.WebGL;
 import Handler = Laya.Handler;
 import Sprite = laya.display.Sprite;
+import StartPanel = view.main.StartPanel;
+import LoadingView = view.main.LoadingView;
+import Dictionary = laya.utils.Dictionary;
+import EventDispatcher = laya.events.EventDispatcher;
+import DisplayNode = laya.display.Node;
+import BaseEvent = laya.events.Event;
 /*
 * name;
 */

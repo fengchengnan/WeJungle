@@ -1,9 +1,8 @@
-import EventDispatcher = laya.events.EventDispatcher;
-import DisplayNode = laya.display.Node;
+
 /*
 * name;
 */
-abstract class BaseScene extends EventDispatcher{
+abstract class BaseScene extends laya.events.EventDispatcher{
     protected _type:EnumSceneType = EnumSceneType.empty;
     protected _isStart:boolean;
     protected _root:DisplayNode;

@@ -1,9 +1,9 @@
-import LoadingView = view.main.LoadingView;
+
 
 /*
 * 通用loading面板;
 */
-///<reference path="LoadingView.ts" />
+//<reference path="LoadingView.ts" />
 class LoadingPanel{
     
     private static _instance:LoadingPanel;

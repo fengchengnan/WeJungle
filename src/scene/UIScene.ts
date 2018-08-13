@@ -1,4 +1,4 @@
-import StartPanel = view.main.StartPanel;
+
 /*
 * UI场景
 */

@@ -1,4 +1,4 @@
-import Dictionary = laya.utils.Dictionary;
+
 /*
 * name;
 */
