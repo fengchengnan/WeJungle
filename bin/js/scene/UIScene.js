@@ -20,8 +20,10 @@ var UIScene = /** @class */ (function (_super) {
         this.event(SceneEvent.PRELOAD_COMPLETE);
     };
     UIScene.prototype.init = function () {
+        this.event(SceneEvent.INIT_COMPLETE);
     };
     UIScene.prototype.onShow = function () {
+        console.log(this.type.toString() + "show");
         var startPanel = new StartPanel();
         this._root.addChild(startPanel);
     };

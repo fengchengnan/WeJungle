@@ -53,6 +53,7 @@ module view.main{
 			if(current > total)
 			{
 				current = total;
+				this.event(BaseEvent.COMPLETE);
 			}
 			this.targetP = current/total;
 		}

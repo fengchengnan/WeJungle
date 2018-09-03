@@ -21,8 +21,8 @@ var BaseScene = /** @class */ (function (_super) {
     BaseScene.prototype.show = function () {
         this._root = new DisplayNode();
         Laya.stage.addChildAt(this._root, 0);
-        this.onShow();
-        Laya.timer.frameOnce(1, this, this.start);
+        //this.onShow();
+        //Laya.timer.frameOnce(1, this, this.start);
     };
     BaseScene.prototype.start = function () {
         this._isStart = true;

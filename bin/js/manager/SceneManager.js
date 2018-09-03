@@ -14,29 +14,30 @@ var SceneManager = /** @class */ (function () {
     SceneManager.show = function (sceneType) {
         LoadingPanel.show();
         if (SceneManager._currScene == null) {
+            LoadingPanel.progress(0.5, 1);
             SceneManager._currScene = SceneManager._sceneDic.get(sceneType);
             SceneManager._currScene.once(SceneEvent.PRELOAD_COMPLETE, SceneManager, SceneManager.onScenePreloadComplete);
             SceneManager._currScene.preload();
-            LoadingPanel.progress(0.5, 1);
         }
         else {
             SceneManager._currScene.clear();
             if (SceneManager._currScene.type == sceneType) {
-                SceneManager._currScene.init();
                 LoadingPanel.progress(0.9, 1);
+                SceneManager._currScene.once(SceneEvent.INIT_COMPLETE, SceneManager, SceneManager.onSceneInitComplete);
+                SceneManager._currScene.init();
             }
             else {
+                LoadingPanel.progress(0.5, 1);
                 SceneManager._currScene = SceneManager._sceneDic.get(sceneType);
                 SceneManager._currScene.once(SceneEvent.PRELOAD_COMPLETE, SceneManager, SceneManager.onScenePreloadComplete);
                 SceneManager._currScene.preload();
-                LoadingPanel.progress(0.5, 1);
             }
         }
     };
     SceneManager.onScenePreloadComplete = function (evt) {
-        SceneManager._currScene.once(SceneEvent.PRELOAD_COMPLETE, SceneManager, SceneManager.onScenePreloadComplete);
-        SceneManager._currScene.init();
         LoadingPanel.progress(0.9, 1);
+        SceneManager._currScene.once(SceneEvent.INIT_COMPLETE, SceneManager, SceneManager.onSceneInitComplete);
+        SceneManager._currScene.init();
     };
     SceneManager.onSceneInitComplete = function (evt) {
         LoadingPanel.instance.once(BaseEvent.COMPLETE, SceneManager, SceneManager.onLoadingProgressComplete);

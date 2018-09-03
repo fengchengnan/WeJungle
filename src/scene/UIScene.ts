@@ -15,11 +15,13 @@ class UIScene extends BaseScene{
 
     public init():void
     {
+        this.event(SceneEvent.INIT_COMPLETE);
     }
 
    
     protected onShow():void
     {
+        console.log(this.type.toString() + "show");
         let startPanel:StartPanel = new StartPanel();
         this._root.addChild(startPanel);
     }

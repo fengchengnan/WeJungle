@@ -53,6 +53,7 @@ var view;
             LoadingView.prototype.progress = function (current, total) {
                 if (current > total) {
                     current = total;
+                    this.event(BaseEvent.COMPLETE);
                 }
                 this.targetP = current / total;
             };
