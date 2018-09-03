@@ -9,15 +9,15 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 /*
-* name;
+* 食物点的外观表现;
 */
-var SceneEvent = /** @class */ (function (_super) {
-    __extends(SceneEvent, _super);
-    function SceneEvent() {
-        return _super.call(this) || this;
+var BaseFoodCreatorSkin = /** @class */ (function (_super) {
+    __extends(BaseFoodCreatorSkin, _super);
+    function BaseFoodCreatorSkin() {
+        var _this = _super.call(this) || this;
+        _this.graphics.drawCircle(0, 0, FoodCreatorConst.BaseRadius, "#ffffff");
+        return _this;
     }
-    SceneEvent.PRELOAD_COMPLETE = "preloadComplete";
-    SceneEvent.INIT_COMPLETE = "initComplete";
-    return SceneEvent;
-}(laya.events.Event));
-//# sourceMappingURL=SceneEvent.js.map
+    return BaseFoodCreatorSkin;
+}(laya.display.Sprite));
+//# sourceMappingURL=BaseFoodCreatorSkin.js.map

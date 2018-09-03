@@ -8,8 +8,6 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-var EventDispatcher = laya.events.EventDispatcher;
-var DisplayNode = laya.display.Node;
 /*
 * name;
 */
@@ -50,5 +48,5 @@ var BaseScene = /** @class */ (function (_super) {
         configurable: true
     });
     return BaseScene;
-}(EventDispatcher));
+}(laya.events.EventDispatcher));
 //# sourceMappingURL=BaseScene.js.map

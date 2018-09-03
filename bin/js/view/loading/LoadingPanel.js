@@ -1,8 +1,7 @@
-var LoadingView = view.main.LoadingView;
 /*
 * 通用loading面板;
 */
-///<reference path="LoadingView.ts" />
+//<reference path="LoadingView.ts" />
 var LoadingPanel = /** @class */ (function () {
     function LoadingPanel() {
         this.panel = new LoadingView();

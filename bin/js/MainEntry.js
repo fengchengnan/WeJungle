@@ -1,6 +1,12 @@
 var WebGL = Laya.WebGL;
 var Handler = Laya.Handler;
 var Sprite = laya.display.Sprite;
+var StartPanel = view.main.StartPanel;
+var LoadingView = view.main.LoadingView;
+var Dictionary = laya.utils.Dictionary;
+var EventDispatcher = laya.events.EventDispatcher;
+var DisplayNode = laya.display.Node;
+var BaseEvent = laya.events.Event;
 /*
 * name;
 */

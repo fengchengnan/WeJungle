@@ -1,4 +1,3 @@
-var Dictionary = laya.utils.Dictionary;
 /*
 * name;
 */
